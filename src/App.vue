@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <h2>SImplexe Vue App</h2>
+    <nav-bar></nav-bar>
+    <router-view />
   </div>
 </template>
 
 <script>
+import NavBar from "@/shared/Navbar";
 
 export default {
-  name: 'App'
-}
+  components: {
+    NavBar,
+  },
+};
 </script>
-
-<style>
-
-</style>
