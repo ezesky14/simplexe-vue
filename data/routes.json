@@ -1,3 +1,10 @@
 {
-    
+    "get-prog-lineaire/id=:id": "",
+    "tableaux/:id": "",
+    "tableau/:id": "",
+    "interpretation/:id": "",
+    "add-interpretation": "",
+    "add-prog-lineaire": "",
+    "add-tableau": "",
+    "get-type-simplexe": ""
 }

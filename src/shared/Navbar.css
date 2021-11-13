@@ -1,0 +1,41 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  /* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+}
+
+.navbar {
+  min-height: 40px;
+  padding: 20px;
+  display: flex;
+  -webkit-box-shadow: 11px 5px 19px 0px rgba(196, 196, 196, 1);
+  -moz-box-shadow: 11px 5px 19px 0px rgba(196, 196, 196, 1);
+  box-shadow: 11px 5px 19px 0px rgba(196, 196, 196, 1);
+  background-color: rgb(93, 179, 194);
+}
+
+.navbar-title {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #fff;
+}
+

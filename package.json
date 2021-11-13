@@ -3,22 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "mock-server": "json-server --watch data/db.json --routes routes.json --port 3003",
+    "serve": "vue-cli-service serve --port 4500",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "cm": "cz",
-    "prepare": "husky install"
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
+    "mock-server": "json-server --watch data/db.json --routes routes.json --port 3003",
+    "prepare": "husky install",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^2.0.6",
+    "axios": "^0.23.0",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vue-i18n": "^8.25.0",
+    "lodash": "^4.17.21",
+    "vue": "^2.6.14",
+    "vue-i18n": "^9.1.9",
+    "vue-router": "^3.5.2",
+    "vuelidate": "^0.7.6",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@intlify/vue-i18n-loader": "^1.1.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.0.6",
@@ -27,6 +39,8 @@
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^6.0.0",
     "jest": "^27.0.6",
+    "prettier": "2.3.2",
+    "vue-cli-plugin-i18n": "~2.3.1",
     "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.11"
   },
@@ -53,5 +67,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "jest": {
+    "bail": 5,
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "src/*.{js,jsx}"
+    ]
   }
 }
