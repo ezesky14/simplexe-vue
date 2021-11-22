@@ -24,24 +24,18 @@ jobs:
     name: Deploy 🚀
     needs: build
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Checkout repository
         uses: actions/checkout@main
       - name: Download artifact
         uses: actions/download-artifact@main
-        with: 
+        with:
           name: dist
           path: dist
       - name: Sync files to hosting
-  uses: SamKirkland/FTP-Deploy-Action@4.1.0
-  with:
-    # ftp server
-    server: ${{ secrets.FTP_HOST }}
-    # ftp username
-    username: ${{ secrets.FTP_USERNAME }}
-    # ftp password
-    password: ${{ secrets.FTP_PASSWORD }}
-    # Server port to connect to (read your web hosts docs)
-    port: 21
-    # protocol to deploy with - ftp, ftps, or ftps-legacy
-    
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
