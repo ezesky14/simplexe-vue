@@ -1,0 +1,47 @@
+name: Build and deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build ⛏
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Install dependencies
+        run: npm install
+      - name: Build dependencies
+        run: npm run build
+      - name: Archive production artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: dist
+          path: dist
+  deploy:
+    name: Deploy 🚀
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Download artifact
+        uses: actions/download-artifact@main
+        with: 
+          name: dist
+          path: dist
+      - name: Sync files to hosting
+  uses: SamKirkland/FTP-Deploy-Action@4.1.0
+  with:
+    # ftp server
+    server: ${{ secrets.FTP_HOST }}
+    # ftp username
+    username: ${{ secrets.FTP_USERNAME }}
+    # ftp password
+    password: ${{ secrets.FTP_PASSWORD }}
+    # Server port to connect to (read your web hosts docs)
+    port: 21
+    # protocol to deploy with - ftp, ftps, or ftps-legacy
+    
