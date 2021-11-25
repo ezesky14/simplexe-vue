@@ -16,6 +16,7 @@ import {
   faBox,
   faLanguage,
   faWindowClose,
+  faCheck
 } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -28,6 +29,7 @@ library.add([
   faBox,
   faLanguage,
   faWindowClose,
+  faCheck
 ]);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
