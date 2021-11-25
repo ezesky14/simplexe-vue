@@ -1,5 +1,18 @@
 <template>
   <div class="simplexe-home-container">
+
+     <div class="home-title">
+      <span class="breadcrumb-active"
+        >
+          <font-awesome-icon
+            icon="home"
+            size="1x"
+            class="icon"
+          />Accueil
+        </span
+      >
+    </div>
+
     <div class="alert-info">
       Veuillez selectionner le type de calcul que vous souhaitez
     </div>
@@ -84,6 +97,8 @@ export default {
   align-items: center;
   margin-top: 20px;
 }
-.dropdown {
+
+.home-title {
+  padding-bottom: 20px;
 }
 </style>
