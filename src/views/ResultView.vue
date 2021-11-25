@@ -1,6 +1,24 @@
 <template>
-  <div>
-    <div>Result with {{ programmeLineaireID }}</div>
+  <div class="result-view">
+    <div class="result-title">
+      <span class="breadcrumb"
+        ><router-link class="menu-item" to="/">
+          <font-awesome-icon
+            icon="home"
+            size="1x"
+            class="icon"
+          />Accueil</router-link
+        ></span
+      >
+      /
+      <span class="breadcrumb-active">
+        <font-awesome-icon
+          icon="calculator"
+          size="1x"
+          class="icon"
+        />Resultats</span
+      >
+    </div>
 
     <dynamic-tableau
       v-bind:current-tableau-index="currentTableauPosition"
@@ -64,3 +82,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.result-view {
+  padding: 10px;
+}
+
+.result-title {
+  margin: 20px;
+}
+</style>

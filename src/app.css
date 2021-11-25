@@ -480,3 +480,22 @@ blockquote footer {
     line-height: var(--line-height);
     padding: 1.5rem 0;
 }
+
+.icon {
+  margin-right: 10px;
+}
+
+.breadcrumb a  {
+  color: inherit;
+}
+
+.breadcrumb a:hover {
+  font-size: 20px;
+  transition: all 0.5s ease-out;
+}
+
+.breadcrumb-active {
+  color: rgb(156, 156, 156);
+  font-size: 20px;
+}
+

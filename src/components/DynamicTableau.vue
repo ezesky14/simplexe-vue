@@ -88,7 +88,7 @@ export default {
     },
     vhbLabelArray() {
       return this.currentTableau
-        ? this.currentTableau.vhbLabels.split(",")
+        ? [...this.currentTableau.vhbLabels.split(","), "Z"]
         : [];
     },
     vdbLabelArray() {
@@ -110,12 +110,13 @@ export default {
 .simplexe-row {
   display: flex;
   padding: 1px;
+  justify-content: space-around;
 }
 
 .simplexe-cel {
   width: 10%;
   margin: 5px;
-
+  flex-grow: 2;
   text-align: center;
 }
 
@@ -132,10 +133,12 @@ export default {
 }
 
 .table-label {
-  border: 1px solid aquamarine;
+  border: 1px solid rgb(37, 204, 255);
+  border-radius: 10px;
 }
 
-.table-value {
-  border: 1px solid rgb(69, 75, 73);
+.table-value,
+.table-label {
+  box-shadow: 5px 3px 10px rgb(29 31 120 / 50%);
 }
 </style>
