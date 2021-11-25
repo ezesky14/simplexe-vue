@@ -26,21 +26,42 @@
       <span
         class="simplexe-cel table-value"
         v-for="(value, colIndex) in col"
-        v-bind:class="{ pivot: value.positionValue === currentTableau.pivot,
-        'v-entrante': value.positionValue === currentTableau['v_entrante'],
-        'v-sortante': (value.vhbValue+value.vdbValue).toLowerCase() === currentTableau['v_sortante'] }"
+        v-bind:class="{
+          pivot: value.positionValue === currentTableau.pivot,
+          'v-entrante': value.positionValue === currentTableau['v_entrante'],
+          'v-sortante':
+            (value.vhbValue + value.vdbValue).toLowerCase() ===
+            currentTableau['v_sortante'],
+        }"
         :key="colIndex"
         >{{ value.value }}</span
       >
+    </div>
+
+    <div v-show="isLast">
+      <interpretation
+        :interpretation="$store.state.interpretation"
+        :type="$store.state.programmeLineaire.type_simplexe"
+      ></interpretation>
     </div>
   </div>
 </template>
 
 <script>
+import Interpretation from "./Interpretation.vue";
+
 export default {
   name: "dynamic-tableau",
   props: ["currentTableauIndex"],
+  components: {
+    Interpretation,
+  },
   computed: {
+    isLast() {
+      return (
+        this.currentTableauIndex === this.$store.state.tableaux.all.length - 1
+      );
+    },
     currentTableau() {
       return this.$store.state.tableaux.all[this.currentTableauIndex];
     },
@@ -103,11 +124,11 @@ export default {
 }
 
 .v-entrante {
-   background-color: rgb(122, 194, 120);
+  background-color: rgb(122, 194, 120);
 }
 
 .v-sortante {
-   background-color: rgb(104, 111, 219);
+  background-color: rgb(104, 111, 219);
 }
 
 .table-label {
