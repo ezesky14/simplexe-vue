@@ -78,6 +78,10 @@ export default {
         this.setColonnesTableau(response.data);
         this.setInterpretation(response.data);
       });
+    } else {
+      if ( this.$store.state.programmeLineaire.id === null) {
+        this.$router.push("/");
+      }
     }
   },
 };
